@@ -1,1 +1,676 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزش لغات درس ۳ - Festivals & Ceremonies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&family=Lalezar&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(90deg, #2c3e50, #4a6491);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-family: 'Lalezar', cursive;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .vocab-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .vocab-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .english-word {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .page-number {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        
+        .meaning {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .syn-ant {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-right: 4px solid #3498db;
+        }
+        
+        .syn-ant h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .example {
+            background: #e8f4fc;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-right: 4px solid #2ecc71;
+        }
+        
+        .example h4 {
+            color: #27ae60;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .example-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .audio-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .audio-btn {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(155, 89, 182, 0.3);
+        }
+        
+        .audio-btn:hover {
+            background: #8e44ad;
+            transform: scale(1.05);
+        }
+        
+        .audio-text {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+        }
+        
+        .photo-frame {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        .photo-frame img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border-radius: 10px;
+            border: 8px solid #f1f8ff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* کادر کوچک طراح */
+        .designer-floating-box {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 15px;
+            width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: floatBox 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .designer-floating-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            animation-play-state: paused;
+        }
+        
+        @keyframes floatBox {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .designer-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 10px;
+            border: 3px solid #3498db;
+        }
+        
+        .designer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .designer-name {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-bottom: 3px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        .designer-title {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .instructions {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-right: 5px solid #ffc107;
+        }
+        
+        .instructions h3 {
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+        
+        .audio-note {
+            background: #e8f6f3;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #0d6251;
+            border-right: 3px solid #1abc9c;
+        }
+        
+        @media (max-width: 768px) {
+            .vocab-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .designer-floating-box {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                width: 180px;
+                margin: 20px auto;
+                animation: none;
+            }
+            
+            .designer-floating-box:hover {
+                transform: none;
+            }
+        }
+        
+        /* استایل برای نوتیفیکیشن */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2ecc71;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-family: 'Vazirmatn', sans-serif;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- کادر کوچک طراح -->
+    <div class="designer-floating-box">
+        <div class="designer-image">
+            <img src="https://s34.picofile.com/file/8488183492/2.png" alt="طراح" onerror="this.src='https://ui-avatars.com/api/?name=A.R.+Yousefzadeh&background=3498db&color=fff&size=100'">
+        </div>
+        <div class="designer-name">A.R. Yousefzadeh</div>
+        <div class="designer-title">طراح آموزشی</div>
+    </div>
 
+    <div class="container">
+        <header>
+            <h1>آموزش لغات درس ۳</h1>
+            <p class="subtitle">Festivals & Ceremonies - Photo Dictionary</p>
+            <p>پایه نهم - صفحات ۱۱۹ تا ۱۲۱</p>
+        </header>
+        
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> راهنمای استفاده</h3>
+            <p>برای هر کلمه می‌توانید روی دکمه پخش صدا کلیک کنید تا تلفظ آن را بشنوید. برای کلمات کلیدی مترادف و متضاد صحیح ارائه شده است. همچنین برای هر کلمه یک مثال با قابلیت پخش تلفظ وجود دارد.</p>
+            <div class="audio-note">
+                <i class="fas fa-volume-up"></i> برای استفاده از قابلیت صدا، مطمئن شوید که مرورگر شما از Web Speech API پشتیبانی می‌کند.
+            </div>
+        </div>
+        
+        <div class="vocab-grid" id="vocabulary-container">
+            <!-- واژه‌ها توسط جاوااسکریپت در اینجا قرار می‌گیرند -->
+        </div>
+        
+        <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="تصویر مرتبط با جشن‌ها و مراسم" id="lesson-image">
+        </div>
+        
+        <footer>
+            <p>طراحی شده برای آموزش واژگان درس ۳ زبان نهم - بخش Photo Dictionary</p>
+            <p>© 2023 - تمامی حقوق محفوظ است</p>
+        </footer>
+    </div>
+
+    <script>
+        // داده‌های واژه‌های درس ۳ با مترادف و متضاد تصحیح شده
+        const vocabularyData = [
+            {
+                id: 1,
+                english: "make lunch/dinner",
+                persian: "تهیه ناهار/شام",
+                synonyms: ["prepare a meal", "cook food", "fix dinner"],
+                antonyms: ["eat out", "order food", "skip meal"],
+                example: "My mother makes dinner every day at 7 PM.",
+                examplePersian: "مادرم هر روز ساعت ۷ عصر شام درست می‌کند.",
+                page: 119
+            },
+            {
+                id: 2,
+                english: "bake a cake",
+                persian: "پختن کیک",
+                synonyms: ["make a cake", "prepare dessert", "cook pastry"],
+                antonyms: ["buy a cake", "purchase dessert", "serve fruit"],
+                example: "We bake a cake for birthdays in our family.",
+                examplePersian: "ما در خانواده‌مان برای تولدها کیک می‌پزیم.",
+                page: 119
+            },
+            {
+                id: 3,
+                english: "set the table",
+                persian: "چیدن میز",
+                synonyms: ["lay the table", "arrange dishes", "prepare table"],
+                antonyms: ["clear the table", "clean up", "remove dishes"],
+                example: "Please set the table for four people.",
+                examplePersian: "لطفاً میز را برای چهار نفر بچین.",
+                page: 119
+            },
+            {
+                id: 4,
+                english: "sing the national anthem",
+                persian: "سرود ملی خواندن",
+                synonyms: ["perform anthem", "chant patriotic song", "recite anthem"],
+                antonyms: ["remain silent", "ignore anthem", "talk during anthem"],
+                example: "Students sing the national anthem every morning at school.",
+                examplePersian: "دانش‌آموزان هر صبح در مدرسه سرود ملی می‌خوانند.",
+                page: 119
+            },
+            {
+                id: 5,
+                english: "hold a ceremony",
+                persian: "برگزاری مراسم",
+                synonyms: ["conduct ceremony", "organize event", "host ceremony"],
+                antonyms: ["cancel ceremony", "postpone event", "skip celebration"],
+                example: "The school will hold a ceremony for the winners.",
+                examplePersian: "مدرسه برای برندگان مراسمی برگزار خواهد کرد.",
+                page: 119
+            },
+            {
+                id: 6,
+                english: "clear the table",
+                persian: "جمع کردن میز",
+                synonyms: ["clean the table", "remove dishes", "wash up"],
+                antonyms: ["set the table", "lay table", "prepare table"],
+                example: "After dinner, the children clear the table.",
+                examplePersian: "بعد از شام، بچه‌ها میز را جمع می‌کنند.",
+                page: 119
+            },
+            {
+                id: 7,
+                english: "watch fireworks",
+                persian: "تماشای آتش‌بازی",
+                synonyms: ["view fireworks", "enjoy fireworks display", "see pyrotechnics"],
+                antonyms: ["miss fireworks", "ignore display", "stay indoors"],
+                example: "On New Year's Eve, we watch fireworks at midnight.",
+                examplePersian: "در شب سال نو، ما در نیمه‌شب آتش‌بازی تماشا می‌کنیم.",
+                page: 120
+            },
+            {
+                id: 8,
+                english: "read poems of Hafez",
+                persian: "خواندن اشعار حافظ",
+                synonyms: ["recite Hafez", "study Persian poetry", "read classical poetry"],
+                antonyms: ["ignore poetry", "read modern novels", "watch TV instead"],
+                example: "Many Iranians read poems of Hafez on Yalda night.",
+                examplePersian: "بسیاری از ایرانیان در شب یلدا اشعار حافظ می‌خوانند.",
+                page: 120
+            },
+            {
+                id: 9,
+                english: "wear special clothes",
+                persian: "پوشیدن لباس خاص",
+                synonyms: ["dress up", "wear formal attire", "put on ceremonial clothes"],
+                antonyms: ["wear casual clothes", "dress informally", "wear everyday clothes"],
+                example: "People wear special clothes for Nowruz celebrations.",
+                examplePersian: "مردم برای جشن‌های نوروز لباس خاص می‌پوشند.",
+                page: 120
+            },
+            {
+                id: 10,
+                english: "go out on Nature Day",
+                persian: "در روز طبیعت به بیرون رفتن",
+                synonyms: ["spend time outdoors", "celebrate in nature", "have a picnic"],
+                antonyms: ["stay home", "remain indoors", "ignore the occasion"],
+                example: "Families go out on Nature Day for picnics.",
+                examplePersian: "خانواده‌ها در روز طبیعت برای پیکنیک به بیرون می‌روند.",
+                page: 120
+            },
+            {
+                id: 11,
+                english: "celebrate a religious holiday",
+                persian: "جشن گرفتن یک تعطیلی مذهبی",
+                synonyms: ["observe religious festival", "honor holy day", "commemorate religious event"],
+                antonyms: ["ignore holiday", "work on holiday", "treat as ordinary day"],
+                example: "Muslims celebrate Eid al-Fitr after Ramadan.",
+                examplePersian: "مسلمانان پس از رمضان عید فطر را جشن می‌گیرند.",
+                page: 120
+            },
+            {
+                id: 12,
+                english: "watch military parade",
+                persian: "تماشای رژه نظامی",
+                synonyms: ["view military march", "observe armed forces parade", "see troops march"],
+                antonyms: ["avoid parade", "ignore ceremony", "protest military events"],
+                example: "Many people watch the military parade on Army Day.",
+                examplePersian: "بسیاری از مردم در روز ارتش رژه نظامی را تماشا می‌کنند.",
+                page: 120
+            },
+            {
+                id: 13,
+                english: "commemorate NE martyrs",
+                persian: "یادبود شهدای انرژی هسته‌ای",
+                synonyms: ["honor nuclear scientists", "remember martyrs", "pay tribute to scientists"],
+                antonyms: ["forget sacrifices", "ignore contributions", "overlook dedication"],
+                example: "We commemorate NE martyrs for their dedication to science.",
+                examplePersian: "ما شهدای انرژی هسته‌ای را برای فداکاری‌شان در علم گرامی می‌داریم.",
+                page: 121
+            },
+            {
+                id: 14,
+                english: "Islamic-Iranian culture",
+                persian: "فرهنگ اسلامی-ایرانی",
+                synonyms: ["Iranian-Islamic heritage", "Persian-Muslim culture", "traditional values"],
+                antonyms: ["western culture", "foreign traditions", "modern globalization"],
+                example: "Nowruz reflects the Islamic-Iranian culture beautifully.",
+                examplePersian: "نوروز به زیبایی فرهنگ اسلامی-ایرانی را نشان می‌دهد.",
+                page: 121
+            },
+            {
+                id: 15,
+                english: "Islamic revolution anniversary",
+                persian: "سالگرد انقلاب اسلامی",
+                synonyms: ["revolution commemoration", "anniversary celebration", "historical remembrance"],
+                antonyms: ["ignore anniversary", "forget historical event", "disregard significance"],
+                example: "People celebrate the Islamic revolution anniversary on February 11.",
+                examplePersian: "مردم سالگرد انقلاب اسلامی را در ۲۲ بهمن جشن می‌گیرند.",
+                page: 121
+            }
+        ];
+
+        // تابع برای تولید کارت‌های واژگان
+        function generateVocabularyCards() {
+            const container = document.getElementById('vocabulary-container');
+            
+            vocabularyData.forEach(word => {
+                const card = document.createElement('div');
+                card.className = 'vocab-card';
+                
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="english-word">${word.english}</div>
+                        <div class="page-number">صفحه: ${word.page}</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="meaning">
+                            <strong><i class="fas fa-language"></i> معنی فارسی:</strong> ${word.persian}
+                        </div>
+                        
+                        <div class="syn-ant">
+                            <h4><i class="fas fa-random"></i> مترادف و متضاد</h4>
+                            <p><strong>مترادف:</strong> ${word.synonyms.join('، ')}</p>
+                            <p><strong>متضاد:</strong> ${word.antonyms.join('، ')}</p>
+                        </div>
+                        
+                        <div class="example">
+                            <h4><i class="fas fa-comment-alt"></i> مثال</h4>
+                            <p class="example-text"><strong>انگلیسی:</strong> ${word.example}</p>
+                            <p><strong>فارسی:</strong> ${word.examplePersian}</p>
+                            <div class="audio-section">
+                                <button class="audio-btn" onclick="playExample(${word.id})">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <span class="audio-text">برای شنیدن تلفظ مثال کلیک کنید</span>
+                            </div>
+                        </div>
+                        
+                        <div class="audio-section">
+                            <button class="audio-btn" onclick="playWord(${word.id})">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <span class="audio-text">برای شنیدن تلفظ کلمه کلیک کنید</span>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // تابع برای پخش تلفظ کلمه
+        function playWord(wordId) {
+            const word = vocabularyData.find(w => w.id === wordId);
+            
+            if (!('speechSynthesis' in window)) {
+                showNotification("مرورگر شما از قابلیت پخش صدا پشتیبانی نمی‌کند.");
+                return;
+            }
+            
+            speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(word.english);
+            utterance.rate = 0.8;
+            utterance.pitch = 1;
+            
+            const voices = speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                utterance.voice = voices[0];
+            }
+            
+            utterance.onstart = function() {
+                showNotification(`در حال پخش: ${word.english}`);
+            };
+            
+            utterance.onerror = function() {
+                showNotification("خطا در پخش صدا.");
+            };
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        // تابع برای پخش تلفظ مثال
+        function playExample(wordId) {
+            const word = vocabularyData.find(w => w.id === wordId);
+            
+            if (!('speechSynthesis' in window)) {
+                showNotification("مرورگر شما از قابلیت پخش صدا پشتیبانی نمی‌کند.");
+                return;
+            }
+            
+            speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(word.example);
+            utterance.rate = 0.8;
+            utterance.pitch = 1;
+            
+            const voices = speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                utterance.voice = voices[0];
+            }
+            
+            utterance.onstart = function() {
+                showNotification(`در حال پخش مثال: ${word.english}`);
+            };
+            
+            utterance.onerror = function() {
+                showNotification("خطا در پخش صدا.");
+            };
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        // تابع برای نمایش اعلان
+        function showNotification(message) {
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // راه‌اندازی اولیه
+        document.addEventListener('DOMContentLoaded', function() {
+            generateVocabularyCards();
+            
+            setTimeout(() => {
+                showNotification("به دوره آموزشی لغات درس ۳ خوش آمدید!");
+            }, 1000);
+        });
+
+        // مدیریت خطای تصویر طراح
+        document.querySelector('.designer-image img').onerror = function() {
+            this.onerror = null;
+            this.src = 'https://ui-avatars.com/api/?name=A.R.+Yousefzadeh&background=3498db&color=fff&size=100';
+        };
+        
+        // مدیریت خطای تصویر اصلی
+        document.getElementById('lesson-image').onerror = function() {
+            this.onerror = null;
+            this.src = 'https://via.placeholder.com/800x400/4a6491/ffffff?text=Festivals+%26+Ceremonies';
+        };
+    </script>
+</body>
+</html>
